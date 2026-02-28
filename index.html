@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Bliss | Animated Bakery</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Sweet Bliss Cake Shop</h1>
+    <p>Handcrafted Happiness in Every Slice</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#chocolate">Chocolate</a>
+    <a href="#cupcakes">Cupcakes</a>
+    <a href="#pastries">Pastries</a>
+    <a href="#donuts">Donuts</a>
+    <a href="#cakes">Cakes</a>
+    <a href="#contact">Contact</a>
+    <button class="nav-cart-btn" onclick="toggleCart()">🛒 Cart (<span id="cart-count-nav">0</span>)</button>
+</nav>
+
+<!-- Cart Sidebar -->
+<div id="cart-sidebar">
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+        <h3>Your Cart 🛒</h3>
+        <span style="cursor:pointer; font-size: 1.5rem;" onclick="toggleCart()">&times;</span>
+    </div>
+    <div id="cart-items-container" style="overflow-y: auto; margin-top: 20px; flex: 1;">
+        <p style="color: #999;">Your cart is empty.</p>
+    </div>
+    <div class="cart-total">
+        <h4>Total: <span id="cart-total-price">₹0</span></h4>
+        <button class="btn-main" style="width: 100%; font-size: 1rem; margin-top: 10px;" onclick="openCheckout()">Place All Orders</button>
+    </div>
+</div>
+
+<!-- Floating Cart Toggle Button -->
+<div class="cart-toggle" onclick="toggleCart()">
+    🛒 <span id="cart-count">0</span>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content" data-aos="zoom-in">
+        <h1>Freshly Baked Daily</h1>
+        <p>Experience the finest desserts in town</p>
+        <a href="#cakes" class="btn-main">View Full Menu</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section" id="about">
+    <div class="container about-row">
+        <div class="about-text" data-aos="fade-up">
+            <h2>Our Sweet Story</h2>
+            <p>Every treat we bake is a labor of love. From our rich Belgian chocolate to our artisanal pastries, we use only premium ingredients to ensure every bite is "Sweet Bliss".</p>
+        </div>
+    </div>
+</section>
+
+<!-- Chocolate Section -->
+<section class="section" id="chocolate">
+    <h2 data-aos="fade-down">Chocolate Heaven 🍫</h2>
+    <div class="container">
+
+        <div class="card choco-card" data-aos="flip-right">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80" alt="Lava Cake">
+            <div class="card-info">
+                <h3>Choco Lava Burst</h3>
+                <div class="price choco-price">₹120</div>
+                <button class="buy-btn choco-btn" onclick="addToCart('Choco Lava Burst', 120, 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+                <button class="buy-btn choco-btn" onclick="openOrder('Choco Lava Burst', '₹120')">Direct Buy</button>
+            </div>
+        </div>
+
+        <div class="card choco-card" data-aos="flip-up" data-aos-delay="100">
+            <img src="https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?auto=format&fit=crop&w=600&q=80" alt="Truffle">
+            <div class="card-info">
+                <h3>Dark Truffle Box</h3>
+                <div class="price choco-price">₹450</div>
+                <button class="buy-btn choco-btn" onclick="addToCart('Dark Truffle Box', 450, 'https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+                <button class="buy-btn choco-btn" onclick="openOrder('Dark Truffle Box', '₹450')">Direct Buy</button>
+            </div>
+        </div>
+
+        <div class="card choco-card" data-aos="flip-left" data-aos-delay="200">
+            <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=600&q=80" alt="Brownie">
+            <div class="card-info">
+                <h3>Fudge Brownie</h3>
+                <div class="price choco-price">₹90</div>
+                <button class="buy-btn choco-btn" onclick="addToCart('Fudge Brownie', 90, 'https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+                <button class="buy-btn choco-btn" onclick="openOrder('Fudge Brownie', '₹90')">Direct Buy</button>
+            </div>
+        </div>
+
+        <div class="card choco-card" data-aos="flip-left" data-aos-delay="300">
+            <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=600&q=80" alt="Assorted Rocks">
+            <div class="card-info">
+                <h3>Almond Rocks</h3>
+                <div class="price choco-price">₹350</div>
+                <button class="buy-btn choco-btn" onclick="addToCart('Almond Rocks', 350, 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card choco-card" data-aos="flip-left" data-aos-delay="400">
+            <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=600&q=80" alt="White Chocolate">
+            <div class="card-info">
+                <h3>White Silk Bar</h3>
+                <div class="price choco-price">₹150</div>
+                <button class="buy-btn choco-btn" onclick="addToCart('White Silk Bar', 150, 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Cupcakes Section -->
+<section class="section" id="cupcakes">
+    <h2 data-aos="fade-up">Gourmet Cupcakes 🧁</h2>
+    <div class="container">
+
+        <div class="card" data-aos="fade-up">
+            <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=600&q=80" alt="Blueberry Cupcake">
+            <div class="card-info">
+                <h3>Blueberry Bliss</h3>
+                <div class="price">₹60</div>
+                <button class="buy-btn" onclick="addToCart('Blueberry Bliss', 60, 'https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=600&q=80" alt="Red Velvet Cupcake">
+            <div class="card-info">
+                <h3>Red Velvet</h3>
+                <div class="price">₹75</div>
+                <button class="buy-btn" onclick="addToCart('Red Velvet', 75, 'https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=600&q=80" alt="Chocolate Cupcake">
+            <div class="card-info">
+                <h3>Double Choco</h3>
+                <div class="price">₹70</div>
+                <button class="buy-btn" onclick="addToCart('Double Choco', 70, 'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=600&q=80" alt="Strawberry Cupcake">
+            <div class="card-info">
+                <h3>Pink Strawberry</h3>
+                <div class="price">₹65</div>
+                <button class="buy-btn" onclick="addToCart('Pink Strawberry', 65, 'https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="400">
+            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=600&q=80" alt="Vanilla Cupcake">
+            <div class="card-info">
+                <h3>Vanilla Cloud</h3>
+                <div class="price">₹55</div>
+                <button class="buy-btn" onclick="addToCart('Vanilla Cloud', 55, 'https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Pastries Section -->
+<section class="section" id="pastries">
+    <h2 data-aos="fade-up">Delightful Pastries 🍰</h2>
+    <div class="container">
+
+        <div class="card" data-aos="fade-right">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80" alt="French Vanilla Slice">
+            <div class="card-info">
+                <h3>French Vanilla Slice</h3>
+                <div class="price">₹120</div>
+                <button class="buy-btn" onclick="addToCart('French Vanilla Slice', 120, 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=600&q=80" alt="Belgium Choco Slice">
+            <div class="card-info">
+                <h3>Belgium Choco Slice</h3>
+                <div class="price">₹140</div>
+                <button class="buy-btn" onclick="addToCart('Belgium Choco Slice', 140, 'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-left" data-aos-delay="200">
+            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80" alt="New York Cheesecake">
+            <div class="card-info">
+                <h3>NY Cheesecake Slice</h3>
+                <div class="price">₹180</div>
+                <button class="buy-btn" onclick="addToCart('NY Cheesecake Slice', 180, 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-left" data-aos-delay="300">
+            <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=600&q=80" alt="Lemon Tart">
+            <div class="card-info">
+                <h3>Zesty Lemon Tart</h3>
+                <div class="price">₹110</div>
+                <button class="buy-btn" onclick="addToCart('Zesty Lemon Tart', 110, 'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Donuts Section -->
+<section class="section" id="donuts">
+    <h2 data-aos="zoom-in">Premium Donuts 🍩</h2>
+    <div class="container">
+
+        <div class="card" data-aos="fade-up">
+            <img src="https://images.unsplash.com/photo-1612240498936-65f5101365d2?auto=format&fit=crop&w=600&q=80" alt="Lotus Biscoff Donut">
+            <div class="card-info">
+                <h3>Lotus Biscoff Delight</h3>
+                <div class="price">₹110</div>
+                <button class="buy-btn" onclick="addToCart('Lotus Biscoff Delight', 110, 'https://images.unsplash.com/photo-1612240498936-65f5101365d2?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=80" alt="Chocolate Donut">
+            <div class="card-info">
+                <h3>Dark Choco Sprinkle</h3>
+                <div class="price">₹70</div>
+                <button class="buy-btn" onclick="addToCart('Dark Choco Sprinkle', 70, 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Cakes Section -->
+<section class="section" id="cakes" style="background: #fffcf0;">
+    <h2 data-aos="fade-up">Royal Cakes</h2>
+    <div class="container">
+
+        <div class="card" data-aos="fade-up">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Vanilla Cake">
+            <div class="card-info">
+                <h3>Classic Vanilla</h3>
+                <div class="price">₹600</div>
+                <button class="buy-btn" onclick="addToCart('Classic Vanilla', 600, 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://images.unsplash.com/photo-1604413191066-4dd20bedf486?auto=format&fit=crop&w=600&q=80" alt="Fruit Cake">
+            <div class="card-info">
+                <h3>Fruit Bliss</h3>
+                <div class="price">₹950</div>
+                <button class="buy-btn" onclick="addToCart('Fruit Bliss', 950, 'https://images.unsplash.com/photo-1604413191066-4dd20bedf486?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <img src="https://images.unsplash.com/photo-1562777717-dc6984f65a63?auto=format&fit=crop&w=600&q=80" alt="Black Forest">
+            <div class="card-info">
+                <h3>Black Forest</h3>
+                <div class="price">₹750</div>
+                <button class="buy-btn" onclick="addToCart('Black Forest', 750, 'https://images.unsplash.com/photo-1562777717-dc6984f65a63?auto=format&fit=crop&w=600&q=80')">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Locations Section -->
+<section class="section" id="locations">
+    <h2 data-aos="fade-up">Find Us 📍</h2>
+    <div class="container">
+        <div class="contact-row">
+            <div style="flex:1; min-width: 300px; text-align: left;">
+                <h3>Our Flagship Store</h3>
+                <p>Visit us for a warm experience and fresh aroma!</p>
+                <div class="info-card" style="margin: 20px 0;">
+                    <h4>📍 Address:</h4>
+                    <p>123 Baker Street, Bandra West, Mumbai, Maharashtra 400050</p>
+                </div>
+                <div class="info-card">
+                    <h4>⏰ Opening Hours:</h4>
+                    <p>Mon - Sun: 9:00 AM - 11:00 PM</p>
+                </div>
+            </div>
+            <div style="flex:2; min-width: 300px;">
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120658.172906802!2d72.74868213768341!3d19.082688085601242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section" id="contact" style="background: #fff0f3;">
+    <h2 data-aos="fade-up">Get In Touch</h2>
+    <div class="contact-row">
+        <div class="contact-form" data-aos="fade-right">
+            <h3>Contact Us</h3><br>
+            <input type="text" placeholder="Your Name" class="input-box">
+            <input type="email" placeholder="Your Email" class="input-box">
+            <textarea placeholder="Your Message" class="input-box" rows="4"></textarea>
+            <button class="btn-main" style="width: 100%; border-radius: 12px;">Send Message</button>
+        </div>
+        <div class="contact-info" data-aos="fade-left">
+            <div class="info-card" style="margin-bottom: 20px;">
+                <h4>📍 Location</h4>
+                <p>123 Baker Street, Mumbai, India</p>
+            </div>
+            <div class="info-card">
+                <h4>📞 Phone</h4>
+                <p>+91 98765 43210</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Order Modal -->
+<div class="modal-overlay" id="orderModal">
+    <div class="order-modal">
+        <span class="modal-close" onclick="closeOrder()">&times;</span>
+        <h2 id="modalTitle" style="font-size: 1.5rem; margin-bottom: 10px;">Order Item</h2>
+        <p id="modalPrice" class="price"></p>
+        <hr style="margin: 15px 0; border: 1px solid #ffe5ec;">
+
+        <input type="text" placeholder="Your Name" class="input-box" id="custName">
+        <input type="text" placeholder="Mobile Number" class="input-box" id="custMobile">
+        <input type="text" placeholder="City" class="input-box" id="custCity">
+        <input type="text" placeholder="Delivery Address" class="input-box" id="custAddr">
+
+        <div class="payment-group">
+            <p style="font-weight: 600; margin-bottom: 5px; font-size: 0.9rem;">Payment Method:</p>
+            <label><input type="radio" name="payment" value="Cash on Delivery" checked> Cash on Delivery</label>
+            <label><input type="radio" name="payment" value="UPI"> UPI / QR Code</label>
+            <label><input type="radio" name="payment" value="Card"> Credit/Debit Card</label>
+        </div>
+
+        <button class="btn-main" style="width: 100%;" onclick="confirmOrder()">Confirm & Place Order</button>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Sweet Bliss Cake Shop | Baked with ❤️</p>
+</footer>
+
+<!-- AOS Animation JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Custom JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>
