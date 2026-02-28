@@ -1,0 +1,408 @@
+/* --- General Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #fff5f7;
+    overflow-x: hidden;
+    color: #333;
+}
+
+header {
+    background: #ff4d6d;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    animation: fadeInDown 1s ease-in;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+nav {
+    background: #ffc2d1;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+nav a:hover {
+    color: #ff4d6d;
+    transform: scale(1.1);
+}
+
+/* --- Header Cart Icon --- */
+.nav-cart-btn {
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url("https://images.unsplash.com/photo-1542826438-8b8b9b2c8c58") center/cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.btn-main {
+    padding: 15px 35px;
+    border: none;
+    background: #ff4d6d;
+    color: white;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.4s;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+}
+
+.btn-main:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 77, 109, 0.6);
+}
+
+/* --- Common Section Styles --- */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #ff4d6d;
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: #ff4d6d;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* --- Card Design --- */
+.card {
+    background: white;
+    width: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    transform: translateY(-15px) rotate(1deg);
+    box-shadow: 0 25px 50px rgba(255, 77, 109, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: 0.6s;
+}
+
+.card:hover img {
+    transform: scale(1.15);
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ff4d6d;
+    margin: 10px 0;
+}
+
+.buy-btn {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ff4d6d;
+    background: transparent;
+    color: #ff4d6d;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 5px;
+}
+
+.buy-btn:hover {
+    background: #ff4d6d;
+    color: white;
+}
+
+/* --- Chocolate Section Theme --- */
+#chocolate {
+    background: #3e2723;
+    color: #efebe9;
+}
+
+#chocolate h2 {
+    color: #d7ccc8;
+}
+
+#chocolate h2::after {
+    background: #d7ccc8;
+}
+
+.choco-card {
+    background: #4e342e !important;
+    border: 1px solid #5d4037;
+}
+
+.choco-card h3 {
+    color: #d7ccc8;
+}
+
+.choco-price {
+    color: #ffab91 !important;
+}
+
+.choco-btn {
+    border-color: #ffab91 !important;
+    color: #ffab91 !important;
+}
+
+.choco-btn:hover {
+    background: #ffab91 !important;
+    color: #3e2723 !important;
+}
+
+/* --- Donuts Section Theme --- */
+#donuts {
+    background: #fff0f3;
+}
+
+/* --- Contact Section --- */
+.contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
+    text-align: left;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 320px;
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+.input-box {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ffe5ec;
+    border-radius: 12px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box:focus {
+    border-color: #ff4d6d;
+}
+
+/* --- Store Locator Map --- */
+.map-container {
+    width: 100%;
+    height: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+footer {
+    background: #ff4d6d;
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+/* --- Order Modal Styles --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 4000;
+}
+
+.order-modal {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 450px;
+    width: 95%;
+    text-align: center;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #ff4d6d;
+    font-weight: bold;
+}
+
+/* --- Cart Styles --- */
+#cart-sidebar {
+    position: fixed;
+    right: -350px;
+    top: 0;
+    width: 320px;
+    height: 100%;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 5000;
+    transition: 0.4s;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#cart-sidebar.active {
+    right: 0;
+}
+
+.cart-toggle {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #ff4d6d;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 2500;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-weight: bold;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.cart-item-info {
+    flex: 1;
+    text-align: left;
+}
+
+.cart-item-info h4 {
+    font-size: 0.9rem;
+}
+
+.cart-total {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 2px solid #ff4d6d;
+}
+
+.payment-group {
+    text-align: left;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #fff5f7;
+    border-radius: 12px;
+}
+
+.payment-group label {
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    nav { gap: 10px; font-size: 0.8rem; }
+    h2 { font-size: 2rem; }
+}
